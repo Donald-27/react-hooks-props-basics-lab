@@ -1,18 +1,22 @@
 import React from "react";
-import NavBar from "./NavBar";
 import Home from "./Home";
 import About from "./About";
-
-// pass this data down as props to the child component(s) that need it!
-import user from "../data/user";
-console.log(user);
+import user from "../data/user"; // Assuming the user data is stored in a separate file
 
 function App() {
   return (
     <div>
-      <NavBar />
-      <Home />
-      <About />
+      <h1>Welcome to My Portfolio</h1>
+      {/* Add a nav element with some links */}
+      <nav>
+        <ul>
+          <li id="home">Home</li>
+          <li id="about">About</li>
+        </ul>
+      </nav>
+      {/* Pass props to Home and About */}
+      <Home name={user.name} city={user.city} color={user.color} />
+      <About bio={user.bio} links={user.links} />
     </div>
   );
 }
